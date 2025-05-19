@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отзывы</title>
+  <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    .feedback-form {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .feedback-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .feedback-form input[type="text"],
+    .feedback-form textarea,
+    .feedback-form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .feedback-form textarea.scroll {
+      height: 100px;
+      overflow: auto;
+    }
+
+    .feedback-form button {
+      background-color: #f9a825;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .feedback-form button:hover {
+      background-color: #f57f17;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="../img/1.png" alt="Логотип"></div>
+    <div class="title">ПИРАМИДА</div>
+  </header>
+
+  <main>
+    <h1 style="text-align: center;">Форма обратной связи</h1>
+
+    <form class="feedback-form">
+      <label for="name">Ваше имя:</label>
+      <input type="text" id="name" name="name" placeholder="Введите имя">
+
+      <label>Оцените клуб:</label>
+      <label><input type="radio" name="rating" value="good"> Отлично</label>
+      <label><input type="radio" name="rating" value="average"> Нормально</label>
+      <label><input type="radio" name="rating" value="bad"> Плохо</label>
+
+      <label>Какие услуги вы использовали?</label>
+      <label><input type="checkbox" name="service" value="gym"> Тренажерный зал</label>
+      <label><input type="checkbox" name="service" value="pool"> Бассейн</label>
+      <label><input type="checkbox" name="service" value="group"> Групповые занятия</label>
+
+      <label for="recommend">Порекомендуете нас друзьям?</label>
+      <select id="recommend" name="recommend">
+        <option value="yes">Да</option>
+        <option value="no">Нет</option>
+        <option value="maybe">Возможно</option>
+      </select>
+
+      <label for="message">Ваш комментарий:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Ваш отзыв..."></textarea>
+
+      <label for="scroll-text">Наши правила (прокрутите):</label>
+      <textarea class="scroll" readonly>
+1. Уважайте других посетителей.
+2. Не нарушайте правила клуба.
+3. Соблюдайте чистоту и порядок.
+4. Не курите и не употребляйте алкоголь в клубе.
+5. С животными вход воспрещен.
+6. Отзывы рассматриваются в течение 3 рабочих дней. 
+      </textarea>
+
+      <button type="submit">Отправить отзыв</button>
+    </form>
+  </main>
+
+  <div id="toast" style="
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #323232;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+"></div>
+
+<script>
+function showToast(message, color = "#323232") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.backgroundColor = color;
+  toast.style.display = "block";
+  toast.style.opacity = 1;
+
+  setTimeout(() => {
+    toast.style.opacity = 0;
+    setTimeout(() => toast.style.display = "none", 300);
+  }, 3000);
+}
+
+document.querySelector(".feedback-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // предотвращаем перезагрузку страницы
+  showToast("Спасибо за ваш отзыв!", "#4caf50"); // зелёный цвет плашки
+});
+</script>
+
+</body>
+</html>

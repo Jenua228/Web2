@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Персональные тренеры</title>
+  <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    .trainers {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .trainer-card {
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 10px;
+      width: 200px;
+    }
+    .trainer-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .trainer-card button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: orange;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="../img/1.png" alt="Логотип"></div>
+    <div class="title">ПИРАМИДА</div>
+    <div class="login-form"></div>
+  </header>
+
+  <main class="content">
+    <h1>Профессиональные тренеры</h1>
+
+    <div class="trainers">
+      <div class="trainer-card">
+        <img src="../img/trainer1.jpg" alt="Тренер 1">
+        <h3>Алексей Смирнов</h3>
+        <button>Записаться</button>
+      </div>
+      <div class="trainer-card">
+        <img src="../img/trainer2.jpg" alt="Тренер 2">
+        <h3>Мария Иванова</h3>
+        <button>Записаться</button>
+      </div>
+      <div class="trainer-card">
+        <img src="../img/trainer3.jpg" alt="Тренер 3">
+        <h3>Иван Кузнецов</h3>
+        <button>Записаться</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

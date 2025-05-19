@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Карта - Пирамида</title>
+  <link rel="stylesheet" href="../css/pages.css">
+  <!-- Подключаем Яндекс.Карты API -->
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/1.png" alt="Логотип">
+    </div>
+    <div class="title">ПИРАМИДА</div>
+  </header>
+
+  
+
+  <main>
+    <section class="map-section">
+      <h1>Мы на карте</h1>
+      <div id="map" style="width: 100%; height: 500px;"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Фитнес-клуб "Пирамида"</p>
+  </footer>
+
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var myMap = new ymaps.Map("map", {
+          center: [55.682962, 37.577497], // Координаты улицы Дмитрия Ульянова, д.31
+          zoom: 16
+      });
+
+      var myPlacemark = new ymaps.Placemark([55.682962, 37.577497], {
+          hintContent: 'Фитнес-клуб "Пирамида"',
+          balloonContent: 'г. Москва, ул. Дмитрия Ульянова, д.31'
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+    }
+  </script>
+</body>
+</html>
